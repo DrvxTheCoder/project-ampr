@@ -9,13 +9,19 @@ export const home = {
     titleLastLine: "à bon port",
     note: "Du point d'accueil à la porte d'embarquement, sans effort.",
     action: { label: "Découvrir", href: "/presentation" },
-    image: placeholder("hero-terminal", "Hall du terminal au coucher du soleil"),
+    image: {
+      src: "/images/hero-terminal.jpeg",
+      alt: "Hall du terminal au coucher du soleil",
+    },
     imageTitle: "Terminaux 2A et 2C",
     imageText: "Un déplacement autonome et sûr pour les personnes à mobilité réduite.",
   },
   about: {
     title: "Le service",
-    image: placeholder("accueil-equipe", "Équipe d'accueil en zone R"),
+    image: {
+      src: "/images/service-hero.jpeg",
+      alt: "Passerelle vitrée menant aux portes A37 à A39",
+    },
     figures: [
       { value: "2", label: "Terminaux" },
       { value: "3 min", label: "Avant le retour" },
@@ -33,7 +39,10 @@ export const home = {
     secondLine: "La sécurité d’abord",
     action: { label: "En savoir plus", href: "/presentation" },
     text: "Le fauteuil ALBA conduit seul le passager vers sa porte. Un agent reste joignable à tout moment grâce au bouton SOS.",
-    image: placeholder("mission-galerie", "Galerie vitrée menant aux portes d'embarquement"),
+    image: {
+      src: "/images/mission-terminal.jpeg",
+      alt: "Allée du terminal entre la zone d'attente et les boutiques",
+    },
   },
   vision: {
     eyebrow: "Notre vision",
@@ -51,25 +60,37 @@ export const home = {
       {
         eyebrow: "Autonomie",
         title: "Un trajet sans effort",
-        image: placeholder("media-07", "Fauteuil en route vers la porte"),
+        image: {
+          src: "/images/atout-autonomie.jpeg",
+          alt: "Voyageur se dirigeant vers les portes A37 à A51",
+        },
         href: "/presentation#parcours",
       },
       {
         eyebrow: "Sécurité",
         title: "Capteurs et vigilance",
-        image: placeholder("media-03", "Capteurs du fauteuil"),
+        image: {
+          src: "/images/atout-securite.jpg",
+          alt: "Fauteuils ALBA et leurs mâts de capteurs",
+        },
         href: "/presentation#engagements",
       },
       {
         eyebrow: "Assistance",
         title: "Le SOS à portée de main",
-        image: placeholder("media-04", "Tablette du fauteuil et bouton SOS"),
+        image: {
+          src: "/images/atout-assistance.jpeg",
+          alt: "Point Assistance mobilité près des portes A37",
+        },
         href: "/presentation#engagements",
       },
       {
         eyebrow: "Confort",
         title: "Une pause si besoin",
-        image: placeholder("media-08", "Passager en pause pendant le trajet"),
+        image: {
+          src: "/images/mission-terminal.jpeg",
+          alt: "Sièges et accès aux toilettes dans le terminal",
+        },
         href: "/presentation#faq",
       },
     ],

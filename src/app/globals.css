@@ -52,8 +52,8 @@
 
 :root {
   /* Identité : modifier ces valeurs suffit à recolorer le site. */
-  --panel: #b8c2ff;
-  --panel-foreground: #0e1116;
+  --panel: #7a1c24;
+  --panel-foreground: #ffffff;
   --signal: #c6383c;
 
   --background: #fbfbfa;

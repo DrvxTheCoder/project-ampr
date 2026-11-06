@@ -1,16 +1,20 @@
-import { placeholder } from "./site";
-
 /** Textes et images de la page Présentation, section par section. */
 export const presentation = {
   hero: {
     eyebrow: "Présentation",
     title: "Le fauteuil autonome ALBA",
     text: "Un fauteuil roulant à batterie rechargeable qui assure un déplacement autonome et sûr pour les personnes à mobilité réduite.",
-    image: placeholder("presentation-hero", "Allée du terminal menant aux portes"),
+    image: {
+      src: "/images/presentation-hero.jpeg",
+      alt: "Deux fauteuils ALBA en zone d'attente du terminal",
+    },
   },
   service: {
     title: "Le service en bref",
-    image: placeholder("fauteuil-detail", "Fauteuil ALBA vu de côté"),
+    image: {
+      src: "/images/presentation-hero-alt.jpeg",
+      alt: "Fauteuils ALBA garés dans le local de préparation",
+    },
     facts: [
       { label: "Public", value: "Passagers WCHR et WCHS pouvant embarquer seuls" },
       { label: "Point d'accueil", value: "Zone R" },
