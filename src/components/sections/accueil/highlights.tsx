@@ -9,7 +9,7 @@ import { home } from "@/content/accueil";
 export function HomeHighlights() {
   return (
     <section className="pb-14 sm:pb-20">
-      <Container>
+      <Container data-reveal="up">
         <Carousel label="Les atouts du service">
           {home.highlights.items.map((item) => (
             <Link

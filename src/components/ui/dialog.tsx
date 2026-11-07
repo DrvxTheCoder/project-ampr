@@ -31,6 +31,26 @@ function DialogClose({
   return <DialogPrimitive.Close data-slot="dialog-close" {...props} />
 }
 
+/** Bouton de fermeture rond, repris du langage des boutons icônes du site. */
+function DialogCloseButton({
+  className,
+  ...props
+}: React.ComponentProps<typeof Button>) {
+  return (
+    <DialogPrimitive.Close data-slot="dialog-close" asChild>
+      <Button
+        variant="outline"
+        size="icon-lg"
+        className={cn("rounded-full", className)}
+        {...props}
+      >
+        <XIcon />
+        <span className="sr-only">Fermer</span>
+      </Button>
+    </DialogPrimitive.Close>
+  )
+}
+
 function DialogOverlay({
   className,
   ...props
@@ -51,9 +71,11 @@ function DialogContent({
   className,
   children,
   showCloseButton = true,
+  closeClassName,
   ...props
 }: React.ComponentProps<typeof DialogPrimitive.Content> & {
   showCloseButton?: boolean
+  closeClassName?: string
 }) {
   return (
     <DialogPortal>
@@ -68,17 +90,9 @@ function DialogContent({
       >
         {children}
         {showCloseButton && (
-          <DialogPrimitive.Close data-slot="dialog-close" asChild>
-            <Button
-              variant="ghost"
-              className="absolute top-2 right-2"
-              size="icon-sm"
-            >
-              <XIcon
-              />
-              <span className="sr-only">Fermer</span>
-            </Button>
-          </DialogPrimitive.Close>
+          <DialogCloseButton
+            className={cn("absolute top-3 right-3", closeClassName)}
+          />
         )}
       </DialogPrimitive.Content>
     </DialogPortal>
@@ -157,6 +171,7 @@ function DialogDescription({
 export {
   Dialog,
   DialogClose,
+  DialogCloseButton,
   DialogContent,
   DialogDescription,
   DialogFooter,

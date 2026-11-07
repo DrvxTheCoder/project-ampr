@@ -12,7 +12,7 @@ export function HomeLatestReport() {
   return (
     <Section>
       <div className="grid gap-8 md:grid-cols-12">
-        <div className="md:col-span-5">
+        <div data-reveal="up" className="md:col-span-5">
           <h2 className="text-display text-xl">Rapport</h2>
           <Link
             href="/rapports"
@@ -22,7 +22,11 @@ export function HomeLatestReport() {
             <ArrowRight className="size-4" aria-hidden />
           </Link>
         </div>
-        <Link href={`/rapports/${latest.slug}`} className="group rounded-sm md:col-span-7">
+        <Link
+          href={`/rapports/${latest.slug}`}
+          data-reveal="up"
+          className="group rounded-sm md:col-span-7"
+        >
           <time dateTime={latest.date} className="text-sm text-muted-foreground">
             {formatDate(latest.date)}
           </time>

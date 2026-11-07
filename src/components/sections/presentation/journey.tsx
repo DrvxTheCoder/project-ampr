@@ -7,15 +7,20 @@ export function PresentationJourney() {
 
   return (
     <Section id="parcours">
-      <Eyebrow>{journey.eyebrow}</Eyebrow>
+      <Eyebrow data-reveal="up">{journey.eyebrow}</Eyebrow>
       <div className="mt-6 flex flex-wrap items-end justify-between gap-x-10 gap-y-3">
-        <h2 className="text-display text-[clamp(1.75rem,3.7vw,3.25rem)]">{journey.title}</h2>
-        <p className="max-w-sm text-sm text-pretty text-muted-foreground">{journey.text}</p>
+        <h2 data-reveal="title" className="text-display text-[clamp(1.75rem,3.7vw,3.25rem)]">
+          {journey.title}
+        </h2>
+        <p data-reveal="up" className="max-w-sm text-sm text-pretty text-muted-foreground">
+          {journey.text}
+        </p>
       </div>
       <ol className="mt-10 grid gap-3 sm:grid-cols-2 lg:grid-cols-5">
         {journey.steps.map((step, index) => (
           <li
             key={step.title}
+            data-reveal="up"
             className={cn(
               "flex min-h-52 flex-col justify-between rounded-3xl p-5",
               step.alba ? "bg-primary text-primary-foreground" : "bg-muted",

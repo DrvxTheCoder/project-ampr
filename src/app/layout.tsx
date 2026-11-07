@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import { Archivo, Geist } from "next/font/google";
 
+import { MicroInteractions } from "@/components/motion/micro-interactions";
+import { PageTransition } from "@/components/motion/page-transition";
 import { SiteFooter } from "@/components/layout/site-footer";
 import { SiteHeader } from "@/components/layout/site-header";
 import { site } from "@/content/site";
@@ -26,7 +28,11 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
-    <html lang="fr" className={`${body.variable} ${display.variable} h-full antialiased`}>
+    <html
+      lang="fr"
+      data-scroll-behavior="smooth"
+      className={`${body.variable} ${display.variable} h-full antialiased`}
+    >
       <body className="flex min-h-full flex-col">
         <a
           href="#contenu"
@@ -35,10 +41,13 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
           Aller au contenu
         </a>
         <SiteHeader searchIndex={searchIndex} />
-        <main id="contenu" className="flex-1">
-          {children}
-        </main>
-        <SiteFooter />
+        <PageTransition>
+          <main id="contenu" className="flex-1">
+            {children}
+          </main>
+          <SiteFooter />
+        </PageTransition>
+        <MicroInteractions />
       </body>
     </html>
   );

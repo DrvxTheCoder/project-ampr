@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 
+import { PageReveal } from "@/components/motion/page-reveal";
 import { MediaGallery } from "@/components/sections/media-gallery";
 import { PageHero } from "@/components/shared/page-hero";
 import { Section } from "@/components/shared/section";
@@ -13,12 +14,12 @@ export const metadata: Metadata = {
 
 export default function MediaPage() {
   return (
-    <>
+    <PageReveal>
       <PageHero {...pageIntros.media} />
       <Section>
         <h2 className="sr-only">Galerie</h2>
         <MediaGallery items={mediaItems} />
       </Section>
-    </>
+    </PageReveal>
   );
 }

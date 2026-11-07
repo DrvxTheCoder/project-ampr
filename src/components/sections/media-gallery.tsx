@@ -4,6 +4,7 @@ import { useState } from "react";
 import Image from "next/image";
 import { Play } from "lucide-react";
 
+import { useFilterReveal } from "@/components/motion/use-filter-reveal";
 import {
   Dialog,
   DialogContent,
@@ -22,12 +23,13 @@ const filters = [
 export function MediaGallery({ items }: { items: MediaItem[] }) {
   const [filter, setFilter] = useState("all");
   const [selected, setSelected] = useState<MediaItem | null>(null);
+  const grid = useFilterReveal<HTMLUListElement>(filter);
 
   const visible = items.filter((item) => filter === "all" || item.type === filter);
 
   return (
     <>
-      <Tabs value={filter} onValueChange={setFilter}>
+      <Tabs value={filter} onValueChange={setFilter} data-reveal="up">
         <TabsList className="h-auto rounded-full">
           {filters.map((option) => (
             <TabsTrigger key={option.value} value={option.value} className="rounded-full px-4 py-1.5">
@@ -37,7 +39,7 @@ export function MediaGallery({ items }: { items: MediaItem[] }) {
         </TabsList>
       </Tabs>
 
-      <ul className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+      <ul ref={grid} data-reveal="up" className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
         {visible.map((item) => (
           <li key={item.id}>
             <button
@@ -68,7 +70,10 @@ export function MediaGallery({ items }: { items: MediaItem[] }) {
       </ul>
 
       <Dialog open={selected !== null} onOpenChange={(open) => !open && setSelected(null)}>
-        <DialogContent className="gap-3 rounded-3xl p-3 sm:max-w-4xl">
+        <DialogContent
+          className="gap-3 rounded-3xl p-3 sm:max-w-4xl"
+          closeClassName="top-7 right-7 size-11 border-0 bg-white text-black hover:bg-white/85 hover:text-black"
+        >
           {selected && (
             <>
               <div className="relative aspect-video overflow-hidden rounded-2xl bg-black">

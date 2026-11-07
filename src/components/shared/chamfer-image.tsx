@@ -23,16 +23,20 @@ export function ChamferImage({
 }: ChamferImageProps) {
   return (
     <div
+      data-reveal="image"
       className={cn("chamfer relative overflow-hidden rounded-3xl bg-muted", className)}
     >
-      <Image
-        src={image.src}
-        alt={image.alt}
-        fill
-        sizes={sizes}
-        preload={preload}
-        className="object-cover transition-transform duration-500 group-hover:scale-[1.03]"
-      />
+      {/* GSAP anime ce conteneur : l'image garde sa transition CSS au survol. */}
+      <div data-reveal-media className="absolute inset-0">
+        <Image
+          src={image.src}
+          alt={image.alt}
+          fill
+          sizes={sizes}
+          preload={preload}
+          className="object-cover transition-transform duration-500 group-hover:scale-[1.03]"
+        />
+      </div>
       {children}
     </div>
   );

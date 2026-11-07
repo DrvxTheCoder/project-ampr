@@ -11,13 +11,16 @@ export function HomeVision() {
   return (
     <Section>
       <div className="flex flex-wrap items-start justify-between gap-x-10 gap-y-3">
-        <Eyebrow>{vision.eyebrow}</Eyebrow>
-        <p className="max-w-md text-sm text-pretty text-muted-foreground">{vision.text}</p>
+        <Eyebrow data-reveal="up">{vision.eyebrow}</Eyebrow>
+        <p data-reveal="up" className="max-w-md text-sm text-pretty text-muted-foreground">
+          {vision.text}
+        </p>
       </div>
       <p className="mt-10 text-display text-[clamp(1.5rem,3.5vw,3rem)]">
         {vision.lines.map((line, index) => (
           <span
             key={line}
+            data-reveal="up"
             className={cn(
               "lg:block",
               offsets[index % offsets.length],

@@ -16,11 +16,13 @@ export function PageHero({ eyebrow, title, text, image }: PageHeroProps) {
     <section className="pt-10 pb-6 sm:pt-14">
       <Container className="grid items-end gap-8 lg:grid-cols-12 lg:gap-12">
         <div className="lg:col-span-7">
-          <Eyebrow>{eyebrow}</Eyebrow>
-          <h1 className="mt-6 text-display text-[clamp(2.25rem,5.4vw,4.5rem)] text-balance">
+          <Eyebrow data-reveal="up">{eyebrow}</Eyebrow>
+          <h1 data-reveal="title" className="mt-6 text-display text-[clamp(2.25rem,5.4vw,4.5rem)] text-balance">
             {title}
           </h1>
-          <p className="mt-6 max-w-xl text-pretty text-muted-foreground sm:text-lg">{text}</p>
+          <p data-reveal="up" className="mt-6 max-w-xl text-pretty text-muted-foreground sm:text-lg">
+            {text}
+          </p>
         </div>
         <ChamferImage
           image={image}

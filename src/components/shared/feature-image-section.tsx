@@ -27,11 +27,15 @@ export function FeatureImageSection({
 }: FeatureImageSectionProps) {
   const title = "text-display text-[clamp(1.75rem,3.7vw,3.25rem)] text-balance";
   const note = "max-w-60 text-sm text-pretty text-muted-foreground";
-  const button = <PillLink href={action.href}>{action.label}</PillLink>;
+  const button = (
+    <PillLink href={action.href} data-reveal="up">
+      {action.label}
+    </PillLink>
+  );
 
   return (
     <Section>
-      <Eyebrow>{eyebrow}</Eyebrow>
+      <Eyebrow data-reveal="up">{eyebrow}</Eyebrow>
       <h2 className="sr-only">
         {firstLine} {secondLine}
       </h2>
@@ -39,23 +43,23 @@ export function FeatureImageSection({
         {layout === "start" ? (
           <>
             <div className="flex flex-wrap items-end justify-between gap-x-10 gap-y-3">
-              <p aria-hidden className={title}>{firstLine}</p>
-              <p className={note}>{text}</p>
+              <p aria-hidden data-reveal="up" className={title}>{firstLine}</p>
+              <p data-reveal="up" className={note}>{text}</p>
             </div>
             <div className="flex flex-wrap items-center gap-x-8 gap-y-3">
               {button}
-              <p aria-hidden className={title}>{secondLine}</p>
+              <p aria-hidden data-reveal="up" className={title}>{secondLine}</p>
             </div>
           </>
         ) : (
           <>
             <div className="flex flex-wrap items-center gap-x-8 gap-y-3">
-              <p aria-hidden className={title}>{firstLine}</p>
+              <p aria-hidden data-reveal="up" className={title}>{firstLine}</p>
               {button}
             </div>
             <div className="flex flex-wrap items-end justify-between gap-x-10 gap-y-3">
-              <p className={note}>{text}</p>
-              <p aria-hidden className={title}>{secondLine}</p>
+              <p data-reveal="up" className={note}>{text}</p>
+              <p aria-hidden data-reveal="up" className={title}>{secondLine}</p>
             </div>
           </>
         )}

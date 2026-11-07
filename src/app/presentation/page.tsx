@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 
+import { PageReveal } from "@/components/motion/page-reveal";
 import { PresentationCommitments } from "@/components/sections/presentation/commitments";
 import { PresentationExperience } from "@/components/sections/presentation/experience";
 import { PresentationFaq } from "@/components/sections/presentation/faq";
@@ -15,13 +16,13 @@ export const metadata: Metadata = {
 
 export default function PresentationPage() {
   return (
-    <>
+    <PageReveal>
       <PageHero {...presentation.hero} />
       <PresentationService />
       <PresentationJourney />
       <PresentationExperience />
       <PresentationCommitments />
       <PresentationFaq />
-    </>
+    </PageReveal>
   );
 }

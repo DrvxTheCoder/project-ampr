@@ -13,7 +13,7 @@ export function PresentationService() {
           sizes="(min-width: 1024px) 40vw, 100vw"
           className="min-h-72 lg:col-span-5"
         />
-        <div className="rounded-3xl bg-panel p-6 text-panel-foreground sm:p-10 lg:col-span-7">
+        <div data-reveal="up" className="rounded-3xl bg-panel p-6 text-panel-foreground sm:p-10 lg:col-span-7">
           <h2 className="text-display text-2xl sm:text-3xl">{service.title}</h2>
           <dl className="mt-6">
             {service.facts.map((fact) => (

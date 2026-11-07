@@ -1,3 +1,4 @@
+import { PageReveal } from "@/components/motion/page-reveal";
 import { HomeAbout } from "@/components/sections/accueil/about";
 import { HomeHero } from "@/components/sections/accueil/hero";
 import { HomeHighlights } from "@/components/sections/accueil/highlights";
@@ -12,7 +13,7 @@ import { home } from "@/content/accueil";
 /** Pour réorganiser l'accueil, déplacez simplement les sections ci-dessous. */
 export default function HomePage() {
   return (
-    <>
+    <PageReveal>
       <HomeHero />
       <HomeAbout />
       <FeatureImageSection {...home.mission} layout="start" />
@@ -23,6 +24,6 @@ export default function HomePage() {
       <HomeLatestReport />
       <HomePublications />
       <HomeMediaTeaser />
-    </>
+    </PageReveal>
   );
 }

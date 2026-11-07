@@ -13,10 +13,10 @@ export function PresentationFaq() {
   return (
     <Section id="faq">
       <div className="grid gap-8 lg:grid-cols-12">
-        <h2 className="text-display text-[clamp(1.75rem,3.7vw,3.25rem)] lg:col-span-5">
+        <h2 data-reveal="title" className="text-display text-[clamp(1.75rem,3.7vw,3.25rem)] lg:col-span-5">
           {faq.title}
         </h2>
-        <Accordion type="single" collapsible className="lg:col-span-7">
+        <Accordion type="single" collapsible data-reveal="up" className="lg:col-span-7">
           {faq.items.map((item) => (
             <AccordionItem key={item.question} value={item.question}>
               <AccordionTrigger className="py-4 text-base">{item.question}</AccordionTrigger>

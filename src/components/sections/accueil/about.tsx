@@ -11,7 +11,7 @@ export function HomeAbout() {
   return (
     <section id="le-service" className="scroll-mt-24 py-8">
       <Container>
-        <div className="grid overflow-hidden rounded-3xl md:grid-cols-2">
+        <div data-reveal="up" className="grid overflow-hidden rounded-3xl md:grid-cols-2">
           <div className="relative min-h-80 bg-muted">
             <Image
               src={about.image.src}

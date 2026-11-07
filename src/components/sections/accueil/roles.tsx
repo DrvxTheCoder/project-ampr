@@ -10,16 +10,16 @@ export function HomeRoles() {
 
   return (
     <Section>
-      <Eyebrow>{roles.eyebrow}</Eyebrow>
+      <Eyebrow data-reveal="up">{roles.eyebrow}</Eyebrow>
       <div className="mt-6 flex flex-wrap items-end justify-between gap-x-10 gap-y-5">
         <h2 className="text-display text-[clamp(1.75rem,3.7vw,3.25rem)]">
           {roles.title.map((line) => (
-            <span key={line} className="block">
+            <span key={line} data-reveal="up" className="block">
               {line}
             </span>
           ))}
         </h2>
-        <div className="max-w-sm">
+        <div data-reveal="up" className="max-w-sm">
           <p className="text-sm text-pretty text-muted-foreground">{roles.text}</p>
           <PillLink href={roles.action.href} className="mt-4">
             {roles.action.label}
@@ -27,7 +27,7 @@ export function HomeRoles() {
         </div>
       </div>
 
-      <div className="mt-10">
+      <div data-reveal="up" className="mt-10">
         <Carousel label="Les acteurs du service" className="items-start">
           {roles.items.map((person, index) => (
             <figure

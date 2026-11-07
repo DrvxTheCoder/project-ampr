@@ -6,9 +6,12 @@ import type { DocumentEntry } from "@/content/types";
 import { ArrowBadge } from "./pill-link";
 
 /** Carte de document : couverture titrée, nom et action de consultation. */
-export function DocumentCard({ document }: { document: DocumentEntry }) {
+export function DocumentCard({
+  document,
+  ...props
+}: { document: DocumentEntry } & Omit<React.ComponentProps<typeof Link>, "href">) {
   return (
-    <Link href={`/documentation/${document.slug}`} className="group block rounded-3xl">
+    <Link href={`/documentation/${document.slug}`} className="group block rounded-3xl" {...props}>
       <div className="relative aspect-[4/5] overflow-hidden rounded-3xl bg-muted">
         <Image
           src={document.cover.src}

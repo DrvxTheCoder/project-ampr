@@ -39,7 +39,8 @@ export function Carousel({ label, children, className }: CarouselProps) {
           <Button
             variant="ghost"
             size="icon"
-            className="rounded-full"
+            data-arrow="left"
+            className="overflow-hidden rounded-full"
             aria-label="Précédent"
             onClick={() => scroll(-1)}
           >
@@ -48,7 +49,8 @@ export function Carousel({ label, children, className }: CarouselProps) {
           <Button
             variant="outline"
             size="icon"
-            className="rounded-full"
+            data-arrow="right"
+            className="overflow-hidden rounded-full"
             aria-label="Suivant"
             onClick={() => scroll(1)}
           >

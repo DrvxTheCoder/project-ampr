@@ -3,6 +3,7 @@
 import { useMemo, useState } from "react";
 import { Search } from "lucide-react";
 
+import { useFilterReveal } from "@/components/motion/use-filter-reveal";
 import { DocumentCard } from "@/components/shared/document-card";
 import { Input } from "@/components/ui/input";
 import { Tabs, TabsList, TabsTrigger } from "@/components/ui/tabs";
@@ -14,6 +15,7 @@ const ALL = "Tout";
 export function DocumentationBrowser({ documents }: { documents: DocumentEntry[] }) {
   const [category, setCategory] = useState<string>(ALL);
   const [query, setQuery] = useState("");
+  const grid = useFilterReveal<HTMLDivElement>(category);
 
   const visible = useMemo(() => {
     const needle = normalize(query.trim());
@@ -26,7 +28,7 @@ export function DocumentationBrowser({ documents }: { documents: DocumentEntry[]
 
   return (
     <>
-      <div className="flex flex-wrap items-center justify-between gap-4">
+      <div data-reveal="up" className="flex flex-wrap items-center justify-between gap-4">
         <Tabs value={category} onValueChange={setCategory} className="max-w-full">
           <TabsList className="h-auto max-w-full justify-start overflow-x-auto rounded-full [scrollbar-width:none]">
             {[ALL, ...documentCategories].map((name) => (
@@ -57,7 +59,7 @@ export function DocumentationBrowser({ documents }: { documents: DocumentEntry[]
       </p>
 
       {visible.length > 0 ? (
-        <div className="mt-6 grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
+        <div ref={grid} data-reveal="up" className="mt-6 grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
           {visible.map((document) => (
             <DocumentCard key={document.slug} document={document} />
           ))}

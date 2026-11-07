@@ -9,6 +9,8 @@ type PillLinkProps = {
   children: React.ReactNode;
   variant?: "solid" | "outline";
   icon?: LucideIcon;
+  /** Sens de l'animation de l'icône au survol. */
+  arrow?: "right" | "down";
   download?: boolean;
   className?: string;
 };
@@ -19,8 +21,10 @@ export function PillLink({
   children,
   variant = "solid",
   icon: Icon = ArrowRight,
+  arrow = "right",
   download,
   className,
+  ...props
 }: PillLinkProps) {
   const solid = variant === "solid";
 
@@ -33,12 +37,14 @@ export function PillLink({
         !solid && "bg-transparent hover:bg-muted",
         className,
       )}
+      {...props}
     >
       <Link href={href} download={download}>
         {children}
         <span
+          data-arrow={arrow}
           className={cn(
-            "grid size-9 place-items-center rounded-full transition-transform duration-200 group-hover/pill:translate-x-0.5",
+            "grid size-9 place-items-center overflow-hidden rounded-full transition-transform duration-200 group-hover/pill:translate-x-0.5",
             solid ? "bg-background text-foreground" : "border border-border",
           )}
         >
@@ -53,8 +59,9 @@ export function PillLink({
 export function ArrowBadge({ className }: { className?: string }) {
   return (
     <span
+      data-arrow="up-right"
       className={cn(
-        "grid size-9 shrink-0 place-items-center rounded-full border border-current/25 transition-colors duration-200 group-hover:bg-foreground group-hover:text-background",
+        "grid size-9 shrink-0 place-items-center overflow-hidden rounded-full border border-current/25 transition-colors duration-200 group-hover:bg-foreground group-hover:text-background",
         className,
       )}
     >

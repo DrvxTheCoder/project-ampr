@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 
+import { PageReveal } from "@/components/motion/page-reveal";
 import { PageHero } from "@/components/shared/page-hero";
 import { ArrowBadge } from "@/components/shared/pill-link";
 import { Section } from "@/components/shared/section";
@@ -16,13 +17,13 @@ export const metadata: Metadata = {
 
 export default function ReportsPage() {
   return (
-    <>
+    <PageReveal>
       <PageHero {...pageIntros.reports} />
       <Section>
         <h2 className="sr-only">Tous les rapports</h2>
         <ul className="border-b border-border">
           {reports.map((report) => (
-            <li key={report.slug} className="border-t border-border">
+            <li key={report.slug} data-reveal="up" className="border-t border-border">
               <Link
                 href={`/rapports/${report.slug}`}
                 className="group grid items-center gap-4 rounded-sm py-7 md:grid-cols-12"
@@ -51,6 +52,6 @@ export default function ReportsPage() {
           ))}
         </ul>
       </Section>
-    </>
+    </PageReveal>
   );
 }

@@ -14,7 +14,7 @@ export function HomeHero() {
       <Container className="grid items-center gap-10 lg:grid-cols-12 lg:gap-8">
         <div className="lg:col-span-7">
           <h1 className="text-display text-[clamp(2.4rem,5.5vw,4.75rem)]">
-            <span className="flex items-center gap-[0.25em]">
+            <span data-reveal="up" className="flex items-center gap-[0.25em]">
               <span className="relative inline-block h-[0.82em] w-[2.1em] shrink-0 overflow-hidden rounded-full">
                 <Image
                   src={hero.pillImage.src}
@@ -30,13 +30,15 @@ export function HomeHero() {
               </span>
             </span>
             {hero.titleLines.map((line) => (
-              <span key={line} className="block">
+              <span key={line} data-reveal="up" className="block">
                 {line}
               </span>
             ))}
-            <span className="block">{hero.titleLastLine}</span>
+            <span data-reveal="up" className="block">
+              {hero.titleLastLine}
+            </span>
           </h1>
-          <PillLink href={hero.action.href} className="mt-8">
+          <PillLink href={hero.action.href} data-reveal="up" className="mt-8">
             {hero.action.label}
           </PillLink>
         </div>
@@ -56,6 +58,7 @@ export function HomeHero() {
           </ChamferImage>
           <a
             href="#le-service"
+            data-reveal="fade"
             aria-label="Faire défiler vers le service"
             className="hidden size-10 shrink-0 place-items-center rounded-full border border-border transition-colors hover:bg-muted xl:grid"
           >
